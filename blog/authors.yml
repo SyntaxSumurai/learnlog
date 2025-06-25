@@ -1,11 +1,11 @@
 guru:
   name: Guru Patel
   title: Developer
-  url: https://linkedin.com/in/bitwiseninja
+  # url: https://linkedin.com/in/bitwiseninja
   image_url: https://github.com/syntaxsamurai.png
   page: true
   socials:
     x: bitwiseninja
-    linkedin: yangshun
+    # linkedin: guru-patel
     github: syntaxsamurai
-    newsletter: https://bitwiseninja.substack.com/
+    # newsletter: https://bitwiseninja.substack.com/

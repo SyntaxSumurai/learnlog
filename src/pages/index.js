@@ -13,8 +13,8 @@ export default function Home() {
       title={`${siteConfig.title} - Developer Portfolio`}
       description="Personal learning log and portfolio - documenting my journey in software development">
       
-      <div className={styles.fixedViewport}>
-        <main className={styles.heroContainerFixed}>
+      <div className={styles.viewport}>
+        <main className={styles.heroContainer}>
           <div className={styles.heroContentCentered}>
             
             <Heading as="h1" className={styles.heroTitle}>
@@ -49,7 +49,7 @@ export default function Home() {
               <Link
                 className={styles.ctaButton}
                 to="/docs">
-                <span>📚 Turtorials</span>
+                <span>📚 Tutorials</span>
               </Link>
               <Link
                 className={styles.ctaButton}
@@ -59,7 +59,8 @@ export default function Home() {
               <a
                 className={styles.ctaButton}
                 href="mailto:gurupatel.dev@email.com"
-                target="_blank">
+                target="_blank"
+                rel="noopener noreferrer">
                 <span>💬 Get in Touch</span>
               </a>
             </div>

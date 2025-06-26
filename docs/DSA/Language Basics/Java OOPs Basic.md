@@ -22,7 +22,7 @@ Access specifiers determine the visibility & accessibility of methods, variables
 - **protected**
   - When a class/method/variable is declared as protected, it can be accessed within the `package` and in `subclasses`.
   
-:::info Default Access Specifier
+:::note Default Access Specifier
 If no access specifier is declared, then Java by default sets a `package-private` access modifier, which means the class or method is only accessible within its own package.
 :::
 
@@ -182,4 +182,95 @@ class Student {
     }
 }
 ```
+:::
+
+
+## Encapsulation
+
+Is simply means bind the data together in one class and restrict the access to the data from outside the class.
+
+e.g: capsule  which has some part visible and some part not visible. Means it is a whole one thing only but we can only access the visible part(public available thing only).
+
+### Key Points:
+- Data Hiding : Encapsulation hides the internal details of how an object works. The objects data is kept private & can only be accessed through methods (getters & setters).
+- Controlled Access : Encapsulation allows us to control how the data is accessed and modified (getters & setters)
+
+
+```java title="Encapsulation Example"
+class BankAccount{
+    private double balance;
+
+    public double getBalance(){
+        return balance;
+    }
+
+    public void setBalance(double balance){
+        this.balance = balance;
+    }
+}
+class Main{
+    public static void main(String[] args){
+        BankAccount account = new BankAccount();
+        account.setBalance(1000.0);
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
+```
+
+In the above example we have used the getters and setter as we can't have direct access to the private balance variable. And hence via this approach we can control the access to the data.
+
+## Inheritance
+
+It's a concept that allows a class to inherit properties & behaviors(methods & fields) from another class.
+
+### Key Points:
+- Reuse of code : As we can directly access the parent methods and variables in the child class hence no need to write the same code again.
+- Extended Functionality : Child classes can have it's own features and can override the parent class methods to get the specific functionality.
+
+```java title="Inheritance Example"
+class Vehicle{
+    private String vehicleNumber;
+
+    public Vehicle(String vehicleNumber){
+        this.vehicleNumber = vehicleNumber;
+    }
+
+    public void honk(){
+        System.out.println("Honk! Honk!");
+    }
+
+    public void printVehicleNumber(){
+        System.out.println("Vehicle Number: " + vehicleNumber);
+    }
+}
+
+class Car extends Vehicle{
+    public Car(String vehicleNumber){
+        super(vehicleNumber);
+    }
+}
+
+class Bus{
+    public Bus(String vehicleNumber){
+        super(vehicleNumber);
+    }
+}
+
+class Main{
+    public static void main(String[] args){
+        Car car = new Car("ABC123");
+        car.honk(); // Output: Honk! Honk!
+        car.printVehicleNumber(); // Output: Vehicle Number: ABC123
+
+        Bus bus = new Bus("DEF456");
+        bus.honk(); // Output: Honk! Honk!
+        bus.printVehicleNumber(); // Output: Vehicle Number: DEF456
+    }
+}
+```
+
+:::note
+syntax to inherit a class:
+class **child_class_name** `extends` **parent_class_name**
+- `extends` keyword is used to inherit the parent class.
 :::

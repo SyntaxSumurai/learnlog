@@ -51,10 +51,15 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/SyntaxSumurai/learnlog/tree/main',
+          
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -62,7 +67,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/SyntaxSumurai/learnlog/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -89,7 +94,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'right'},
           {
-            href: 'https://github.com/syntaxsamurai',
+            href: 'https://github.com/SyntaxSumurai',
             label: 'GitHub',
             position: 'right',
           },

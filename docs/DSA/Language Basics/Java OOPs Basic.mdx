@@ -1,11 +1,13 @@
+import OneCompiler from "@site/src/components/OneCompiler"
+
 # Java OOPs Basics
 
 ## Classes and Objects
 
-### Class
+#### Class
 - A class is simply a blueprint or template for creating objects. A class encapsulates (hides the data and functions) data and functions that operate on the data or manipulate it.
 
-### Object
+#### Object
 - An object is an instance (copy) of a class. When a class is defined, only the description for the object is defined; no memory or storage is allocated.
 - When an object is created, the memory is allocated and the objects now contain the actual data stored in the attributes or variables and also can manipulate that data using the methods defined in the class.
 
@@ -13,7 +15,7 @@
 
 Access specifiers determine the visibility & accessibility of methods, variables & classes.
 
-### Most common are:
+#### Most common are:
 
 - **public** 
    - When a class/method/variable is declared as public, it can be accessed from `anywhere` in the program.
@@ -191,7 +193,7 @@ Is simply means bind the data together in one class and restrict the access to t
 
 e.g: capsule  which has some part visible and some part not visible. Means it is a whole one thing only but we can only access the visible part(public available thing only).
 
-### Key Points:
+#### Key Points:
 - Data Hiding : Encapsulation hides the internal details of how an object works. The objects data is kept private & can only be accessed through methods (getters & setters).
 - Controlled Access : Encapsulation allows us to control how the data is accessed and modified (getters & setters)
 
@@ -223,7 +225,7 @@ In the above example we have used the getters and setter as we can't have direct
 
 It's a concept that allows a class to inherit properties & behaviors(methods & fields) from another class.
 
-### Key Points:
+#### Key Points:
 - Reuse of code : As we can directly access the parent methods and variables in the child class hence no need to write the same code again.
 - Extended Functionality : Child classes can have it's own features and can override the parent class methods to get the specific functionality.
 
@@ -274,3 +276,140 @@ syntax to inherit a class:
 class **child_class_name** `extends` **parent_class_name**
 - `extends` keyword is used to inherit the parent class.
 :::
+
+## Polymorphism
+It's a concept that allows an object to take on many forms.
+
+#### Key Points:
+- Method Overloading(Compile-time Polymorphism) : Method overloading is a feature that allows a class to have multiple methods with the same name but different parameters.
+- Method Overriding(Runtime Polymorphism) : Method overriding is a feature that allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+
+```java title="Polymorphism Example"
+class Vehicle{
+    private String vehicleNumber;
+
+    public vehicle(String vehicleNumber){
+        this.vehicleNumber = vehicleNumber;
+    }
+
+    public void honk(){
+        System.out.println("Honk!!!!");
+    }
+
+    public void printVehicleNumber(){
+        System.out.println("Vehicle Number: " + vehicleNumber);
+    }
+}
+
+class car extends Vehicle{
+    public car(String carNumber){
+        super(carNumber);
+    }
+
+    @override
+    public void honk(){
+        System.out.println("Car Honk!!");
+    }
+}
+
+class Bus extends Vehicle{
+    public Bus(String busNumber){
+        super(busNumber);
+    }
+}
+
+class Main{
+    public static void main(String[] args){
+        Car car = new Car("AB12CD245B");
+        car.honk();
+
+        Bus bus = new Bus("CD12VF45F8");
+        bus.honk();
+
+        System.out.println("Car Number: ",car.printVehicleNumber());
+        System.out.println("Bus Number: ",bus.printVehicleNumber());
+    }
+}
+```
+
+#### Try it here
+
+<OneCompiler url="https://onecompiler.com/java/43ph5x23s" />
+
+In the above code we have two different methods inheriting the same class but in the car class we implemented exact same method that was in vehicle hence for the car class that method will be called and this technique is called as `Method Overriding` and hence in the honk time it will print `Car Honk!!` whereas the bus will still print the `Honk!!!!`.
+
+
+## Abstraction
+Abstraction is a concept that focuses on hiding complex implementations and only exposing the necessary features of an object or method.
+
+#### Key Points:
+- Hides Complexity: Abstraction allows a user to interact with an object or method without needing to know the underlying implementation
+- Simplifies Interaction: Only the important aspects are made public hence simple interaction.
+
+> A good example is a Car, As in car we just directly interact with the simplified things like steering, brakes, gear and like that without knowing the actual internal thing that how it works.
+
+### Ways to achieve Abstraction
+1. Abstract class
+2. Interfaces
+
+### Abstract class
+An abstract class is a class that can be directly `instantiated` directly (can't create object directly). It can have both regular as well as abstract methods.
+
+:::note
+Abstract methods are methods with no body just definition. And `abstract` keyword is used to declare an abstract class.
+```java
+abstract class Animal{
+    public void sound();
+}
+```
+:::
+Abstract methods are intended to be implemented by subclass.Ensuring each subclass will have its own implementation of the method.
+
+#### Key Points:
+- Can't be instantiated
+- Abstract method
+- Can have regular methods
+
+```java title="Abstraction Example"
+abstract class Animal{
+    abstract void sound();
+    void sleep(){
+        System.out.println("This animal is sleeping!!");
+    }
+}
+
+class dog extends Animal{
+    void sound(){
+        System.out.println("Bark!!");
+    }
+}
+```
+
+
+### Interfaces
+Interface is a completely abstract type and only contains the abstract methods.
+
+:::info
+From Java8  interfaces can contain static and default methods with body & from java9 private method as well
+:::
+
+#### Key Points
+- Pure Abstraction
+- No Instantiation
+- Multiple Implementation
+
+```java title="Interface Example"
+interface Animal{
+    void sound();
+}
+
+class dog implements Animal{
+    void sound(){
+        System.out.println("Barks!!");
+    }
+}
+```
+
+#### Pros of Interfaces
+- Multiple Inheritance: A class can implement multiple interface unlike classes that can only extend one class.
+- Loose Coupling: Interface helps to reduce the dependencies between differnt parts of the code making the system more modular & easier to maintain.

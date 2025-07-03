@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 It's a way to find out how effecient our algorithm is by expressing how the execution time grows as the input size grows.
 
 ## Rate of change
